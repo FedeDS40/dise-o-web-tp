@@ -16,6 +16,9 @@
     --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
     --border: #e2e8f0;
+    --footer-dark: #1e293b;
+    --footer-light: #334155;
+    --social-bg: #60a5fa;
 }
 
 body {
@@ -26,7 +29,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Header y Navegación */
+/* ===== HEADER & NAVIGATION ===== */
 .main-header {
     background: var(--gradient);
     padding: 1rem 0;
@@ -47,6 +50,9 @@ body {
 }
 
 .nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 12px 30px;
     background: rgba(255, 255, 255, 0.2);
     color: white;
@@ -56,6 +62,7 @@ body {
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
+    gap: 8px;
 }
 
 .nav-btn:hover {
@@ -64,13 +71,30 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Contenido Principal */
+/* Botón Canva específico */
+.canva-btn {
+    padding: 10px 18px;
+}
+
+.btn-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.nav-btn:hover .btn-image {
+    transform: scale(1.15);
+}
+
+/* ===== MAIN CONTENT ===== */
 .main-content {
     margin-top: 80px;
     min-height: calc(100vh - 80px);
 }
 
-/* Hero Section - Index */
+/* Hero Section */
 .hero-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -157,8 +181,9 @@ body {
     border-radius: 20px;
 }
 
-/* Categorías - Programas */
-.categories-section {
+/* ===== CATEGORÍAS & PROGRAMAS ===== */
+.categories-section,
+.programs-section {
     max-width: 1400px;
     margin: 0 auto;
     padding: 4rem 2rem;
@@ -179,6 +204,7 @@ body {
     font-weight: 700;
 }
 
+/* Grid de Categorías */
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -245,17 +271,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Programas Individuales */
-.programs-section {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
+/* Grid de Programas */
 .program-grid {
     display: flex;
     flex-direction: column;
@@ -279,11 +295,12 @@ body {
 .program-image {
     width: 200px;
     height: 200px;
+    min-width: 200px;
+    flex-shrink: 0;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
     background: var(--gradient);
 }
 
@@ -314,7 +331,7 @@ body {
     line-height: 1.6;
 }
 
-/* Estilos específicos para Canva */
+/* ===== CANVA SPECIFIC STYLES ===== */
 .canva-hero {
     display: flex;
     gap: 3rem;
@@ -406,7 +423,7 @@ body {
     border-bottom: none;
 }
 
-/* Estilos para ventajas/desventajas */
+/* Ventajas/Desventajas */
 .comparison-grid {
     display: flex;
     gap: 2rem;
@@ -470,7 +487,128 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Animaciones */
+/* ===== FOOTER ===== */
+.professional-footer {
+    background: linear-gradient(135deg, var(--footer-dark), var(--footer-light));
+    color: white;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--social-bg);
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #93c5fd;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--social-bg);
+    transform: translateY(-2px);
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--social-bg);
+}
+
+/* Contact Info */
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.contact-info i {
+    width: 20px;
+    color: var(--social-bg);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem 0;
+    border-top: 1px solid #475569;
+}
+
+.footer-bottom .footer-container {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-legal a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--social-bg);
+}
+
+/* ===== ANIMATIONS ===== */
 @keyframes slideInLeft {
     from {
         opacity: 0;
@@ -512,7 +650,7 @@ body {
     color: var(--accent-color);
 }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1200px) {
     .categories-grid {
         grid-template-columns: repeat(5, 1fr);
@@ -542,10 +680,16 @@ body {
     .category-card {
         min-height: 250px;
     }
+    
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .categories-section {
+    .categories-section,
+    .programs-section {
         padding: 2rem 1rem;
     }
     
@@ -587,13 +731,17 @@ body {
         gap: 2rem;
     }
     
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
     .program-card {
         flex-direction: column;
     }
     
     .program-image {
         width: 100%;
-        height: 180px;
+        height: 200px;
     }
     
     .canva-hero {
@@ -614,307 +762,16 @@ body {
     .comparison-grid {
         flex-direction: column;
     }
-}
-
-@media (max-width: 480px) {
-    .categories-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
     
-    .category-card {
-        min-height: 200px;
-        padding: 1rem;
-    }
-    
-    .category-image {
-        height: 100px;
-    }
-    
-    .main-title {
-        font-size: 2.5rem;
-    }
-    
-    .question {
-        font-size: 1.1rem;
-    }
-    
-    .program-image {
-        height: 160px;
-    }
-}
-/* CORRECCIÓN ESPECÍFICA PARA IMÁGENES DE EDITORES DE CÓDIGO */
-.programs-section .program-image {
-    width: 200px;
-    height: 200px;
-    min-width: 200px;
-    flex-shrink: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--gradient);
-}
-
-.programs-section .program-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.program-card:hover .program-image img {
-    transform: scale(1.05);
-}
-
-/* Asegurar que las imágenes tengan exactamente el mismo tamaño */
-.program-grid .program-card .program-image,
-.program-grid .program-card .program-image img {
-    width: 200px !important;
-    height: 200px !important;
-    min-width: 200px !important;
-    max-width: 200px !important;
-}
-
-/* Responsive para móviles */
-@media (max-width: 768px) {
-    .programs-section .program-image {
-        width: 100% !important;
-        height: 200px !important;
-        min-width: 100% !important;
-    }
-    
-    .program-grid .program-card .program-image,
-    .program-grid .program-card .program-image img {
-        width: 100% !important;
-        height: 200px !important;
-        min-width: 100% !important;
-        max-width: 100% !important;
-    }
-}
-/* Estilos para botones con imagen */
-.btn-image {
-    width: 30px;  /* Tamaño del icono */
-    height: 30px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.nav-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* Espacio entre imagen y texto si hay ambos */
-}
-
-/* Efecto hover para el botón con imagen */
-.nav-btn:hover .btn-image {
-    transform: scale(1.1); /* Efecto de zoom al hacer hover */
-}
-
-/* Si quieres solo la imagen sin texto */
-.canva-btn {
-    padding: 8px 16px; /* Ajusta el padding para la imagen */
-}
-
-/* Para que se vea bien en responsive */
-@media (max-width: 768px) {
     .btn-image {
-        width: 25px;
-        height: 25px;
-    }
-    
-    .canva-btn {
-        padding: 6px 12px;
-    }
-}
-/* Estilos para botones con imagen - VERSIÓN MÁS GRANDE */
-.btn-image {
-    width: 50px;  /* Más grande */
-    height: 50px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-    display: block;
-}
-
-.nav-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 20px; /* Más padding para botón más grande */
-}
-
-/* Botón de Canva específicamente más grande */
-.canva-btn {
-    padding: 10px 18px !important; /* Más espacio alrededor de la imagen */
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 25px;
-}
-
-/* Efecto hover para el botón con imagen */
-.nav-btn:hover .btn-image {
-    transform: scale(1.15); /* Efecto de zoom más pronunciado */
-}
-
-.canva-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Para que se vea bien en responsive */
-@media (max-width: 768px) {
-    .btn-image {
-        width: 40px;  /* Un poco más pequeño en móvil pero aún visible */
+        width: 40px;
         height: 40px;
     }
     
     .canva-btn {
-        padding: 8px 14px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .btn-image {
-        width: 35px;
-        height: 35px;
+        padding: 8px 14px;
     }
     
-    .canva-btn {
-        padding: 6px 12px !important;
-    }
-}
-/* Footer Profesional */
-.professional-footer {
-    background: linear-gradient(135deg, #1e293b, #334155);
-    color: white;
-    margin-top: auto;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 2rem;
-}
-
-.footer-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #60a5fa;
-}
-
-.footer-section h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #93c5fd;
-}
-
-.footer-section p {
-    line-height: 1.6;
-    color: #cbd5e1;
-    margin-bottom: 1.5rem;
-}
-
-/* Social Links */
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-link:hover {
-    background: #60a5fa;
-    transform: translateY(-2px);
-}
-
-/* Footer Links */
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-links a {
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #60a5fa;
-}
-
-/* Contact Info */
-.contact-info p {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.8rem;
-}
-
-.contact-info i {
-    width: 20px;
-    color: #60a5fa;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 1.5rem 0;
-    border-top: 1px solid #475569;
-}
-
-.footer-bottom .footer-container {
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-legal {
-    display: flex;
-    gap: 2rem;
-}
-
-.footer-legal a {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
-
-.footer-legal a:hover {
-    color: #60a5fa;
-}
-
-/* Responsive Footer */
-@media (max-width: 1024px) {
-    .footer-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
     .footer-container {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -924,7 +781,6 @@ body {
     .footer-bottom .footer-container {
         flex-direction: column;
         gap: 1rem;
-        text-align: center;
     }
     
     .footer-legal {
@@ -942,6 +798,37 @@ body {
 }
 
 @media (max-width: 480px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .category-card {
+        min-height: 200px;
+        padding: 1rem;
+    }
+    
+    .category-image {
+        height: 100px;
+    }
+    
+    .question {
+        font-size: 1.1rem;
+    }
+    
+    .program-image {
+        height: 160px;
+    }
+    
+    .btn-image {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .canva-btn {
+        padding: 6px 12px;
+    }
+    
     .footer-container {
         padding: 2rem 1rem;
     }
