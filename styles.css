@@ -46,23 +46,33 @@ body {
     padding: 0 2rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    height: 6cm;
+    gap: 2rem;
 }
 
-/* BOTONES BASE */
+/* BOTONES BASE ORIGINALES - NO MODIFICADOS */
 .nav-btn {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
     text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-/* BOTÓN CANVA: 5cm x 5cm - 100% IMAGEN SIN MÁRGENES */
-.canva-btn {
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== BOTONES ESPECÍFICOS SOLO PARA INDEX.HTML ===== */
+.canva-btn-index {
     width: 5cm;
     height: 5cm;
     padding: 0;
@@ -72,7 +82,7 @@ body {
     overflow: hidden;
 }
 
-.btn-image {
+.btn-image-index {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -80,8 +90,7 @@ body {
     transition: all 0.3s ease;
 }
 
-/* BOTÓN PROGRAMAS: 1cm alto x ancho automático */
-.programas-btn {
+.programas-btn-index {
     height: 1cm;
     padding: 0 1.5cm;
     font-size: 0.9rem;
@@ -94,22 +103,34 @@ body {
     width: auto;
 }
 
-/* EFECTOS HOVER */
-.canva-btn:hover {
+/* EFECTOS HOVER SOLO PARA INDEX */
+.canva-btn-index:hover {
     background: transparent;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.canva-btn:hover .btn-image {
+.canva-btn-index:hover .btn-image-index {
     transform: scale(1.05);
     filter: brightness(1.1);
 }
 
-.programas-btn:hover {
+.programas-btn-index:hover {
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor específico para index */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    height: 6cm;
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -787,15 +808,6 @@ body {
         flex-direction: column;
     }
     
-    .btn-image {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .canva-btn {
-        padding: 8px 14px;
-    }
-    
     .footer-container {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -844,20 +856,68 @@ body {
         height: 160px;
     }
     
-    .btn-image {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .canva-btn {
-        padding: 6px 12px;
-    }
-    
     .footer-container {
         padding: 2rem 1rem;
     }
     
     .footer-bottom .footer-container {
         padding: 0 1rem;
+    }
+}
+
+/* ===== RESPONSIVE PARA BOTONES INDEX ===== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+        height: 4cm;
+    }
+    
+    .canva-btn-index {
+        width: 3.5cm;
+        height: 3.5cm;
+    }
+    
+    .programas-btn-index {
+        height: 0.8cm;
+        padding: 0 1.2cm;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        gap: 1.5rem;
+        height: 3.5cm;
+    }
+    
+    .canva-btn-index {
+        width: 3cm;
+        height: 3cm;
+    }
+    
+    .programas-btn-index {
+        height: 0.7cm;
+        padding: 0 1cm;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-container {
+        gap: 1rem;
+        height: 3cm;
+    }
+    
+    .canva-btn-index {
+        width: 2.5cm;
+        height: 2.5cm;
+    }
+    
+    .programas-btn-index {
+        height: 0.6cm;
+        padding: 0 0.8cm;
+        font-size: 0.7rem;
     }
 }
